@@ -4,8 +4,8 @@
 >
     <div
         ax-load
-        x-load-css="[@js(\Filament\Support\Facades\FilamentAsset::getStyleHref('locationpickr', 'arbermustafa/filament-locationpickr-field'))]"
-        ax-load-src="{{ \Filament\Support\Facades\FilamentAsset::getAlpineComponentSrc('locationpickr-field', 'arbermustafa/filament-locationpickr-field') }}"
+        x-load-css="[@js(\Filament\Support\Facades\FilamentAsset::getStyleHref('locationpickr', 'lara-zeus/filament-locationpickr-field'))]"
+        ax-load-src="{{ \Filament\Support\Facades\FilamentAsset::getAlpineComponentSrc('locationpickr-field', 'lara-zeus/filament-locationpickr-field') }}"
         wire:ignore
         x-data="locationPickrField({
             location: $wire.$entangle('{{ $getStatePath() }}'),

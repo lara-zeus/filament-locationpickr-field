@@ -1,6 +1,6 @@
 <?php
 
-namespace ArberMustafa\FilamentLocationPickrField\Infolists\Components;
+namespace LaraZeus\FilamentLocationPickrField\Infolists\Components;
 
 use Closure;
 use Filament\Infolists\Components\Entry;

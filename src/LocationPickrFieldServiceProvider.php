@@ -1,6 +1,6 @@
 <?php
 
-namespace ArberMustafa\FilamentLocationPickrField;
+namespace LaraZeus\FilamentLocationPickrField;
 
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Css;
@@ -29,7 +29,7 @@ class LocationPickrFieldServiceProvider extends PackageServiceProvider
                 AlpineComponent::make('locationpickr-field', __DIR__ . '/../resources/dist/field.js'),
                 AlpineComponent::make('locationpickr-entry', __DIR__ . '/../resources/dist/entry.js'),
             ],
-            package: 'arbermustafa/filament-locationpickr-field'
+            package: 'lara-zeus/filament-locationpickr-field'
         );
     }
 }

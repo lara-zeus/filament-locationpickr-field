@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) arbermustafa <info@arbermustafa.com>
+Copyright (c) lara-zeus <info@lara-zeus.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

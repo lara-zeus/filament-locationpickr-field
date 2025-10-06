@@ -1,8 +1,8 @@
 {
-    "name": "arbermustafa/filament-locationpickr-field",
+    "name": "lara-zeus/filament-locationpickr-field",
     "description": "Location picker field for Filament Php using Google Maps",
     "keywords": [
-        "arbermustafa",
+        "lara-zeus",
         "laravel",
         "filament-plugin",
         "filament-locationpickr-field",
@@ -12,15 +12,13 @@
         "field",
         "php"
     ],
-    "homepage": "https://github.com/arbermustafa/filament-locationpickr-field",
+    "homepage": "https://github.com/lara-zeus/filament-locationpickr-field",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Arber Mustafa",
-            "email": "info@arbermustafa.com",
-            "role": "Developer",
-            "homepage": "https://arbermustafa.com"
+            "name": "Lara Zeus (Ash)",
+            "email": "info@larazeus.com"
         }
     ],
     "require": {
@@ -29,16 +27,17 @@
         "spatie/laravel-package-tools": "^1.13.5"
     },
     "require-dev": {
+        "filament/upgrade": "^4.0",
         "pestphp/pest": "^2.10"
     },
     "autoload": {
         "psr-4": {
-            "ArberMustafa\\FilamentLocationPickrField\\": "src"
+            "LaraZeus\\FilamentLocationPickrField\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ArberMustafa\\FilamentLocationPickrField\\Tests\\": "tests"
+            "LaraZeus\\FilamentLocationPickrField\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -56,7 +55,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ArberMustafa\\FilamentLocationPickrField\\LocationPickrFieldServiceProvider"
+                "LaraZeus\\FilamentLocationPickrField\\LocationPickrFieldServiceProvider"
             ]
         }
     },

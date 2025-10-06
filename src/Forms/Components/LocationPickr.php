@@ -1,6 +1,6 @@
 <?php
 
-namespace ArberMustafa\FilamentLocationPickrField\Forms\Components;
+namespace LaraZeus\FilamentLocationPickrField\Forms\Components;
 
 use Closure;
 use Exception;
