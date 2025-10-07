@@ -12,7 +12,7 @@ You can install the package into a Laravel app that uses [Filament](https://fila
 composer require lara-zeus/filament-locationpickr-field:"^3.0.0"
 ```
 
-**Filament V3 & V2** - if you are using Filament v2.x, you can use https://github.com/arbermustafa/filament-locationpickr-field repository.
+**Filament V3 & V2** - you can use https://github.com/arbermustafa/filament-locationpickr-field repository.
 
 You can publish the config file with:
 
