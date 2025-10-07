@@ -202,6 +202,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## Credits
 
 -   [Lara Zeus](https://github.com/lara-zeus)
+-   [Arber Mustafa](https://github.com/arbermustafa)
 -   [Hugh Messenger](https://github.com/cheesegrits)
 -   [All Contributors](../../contributors)
 
