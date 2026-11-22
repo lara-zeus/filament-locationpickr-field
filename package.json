@@ -2,28 +2,30 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "dev:styles": "npx tailwindcss -i resources/css/locationpickr.css -o resources/dist/locationpickr.css --postcss --watch",
+        "dev:styles": "npx @tailwindcss/cli -i ./resources/css/locationpickr.css -o ./resources/dist/locationpickr.css --watch",
         "dev:scripts": "node bin/build.js --dev",
-        "build:styles": "npx tailwindcss -i resources/css/locationpickr.css -o resources/dist/locationpickr.css --postcss --minify && npm run purge",
+        "build:styles": "npx @tailwindcss/cli -i ./resources/css/locationpickr.css -o ./resources/dist/locationpickr.css --minify",
         "build:scripts": "node bin/build.js",
-        "prettier": "npx prettier --write resources/{**/*,*}.{css,js,jsx,blade.php}",
-        "purge": "filament-purge -i resources/dist/locationpickr.css -o resources/dist/locationpickr.css -v 3.x",
+        "prettier": "npx prettier --write \"resources/{css,js,views}/**/*.{css,js,blade.php}\"",
         "dev": "npm-run-all --parallel dev:*",
         "build": "npm run prettier && npm-run-all build:*"
     },
     "devDependencies": {
-        "@awcodes/filament-plugin-purge": "^1.1.1",
         "@shufo/prettier-plugin-blade": "^1.11.1",
-        "autoprefixer": "^10.4.14",
-        "esbuild": "^0.19.2",
+        "@tailwindcss/cli": "^4.1.7",
+        "esbuild": "^0.28.2",
         "npm-run-all": "^4.1.5",
-        "postcss": "^8.4.26",
-        "postcss-import": "^15.1.0",
         "prettier": "^3.0.0",
-        "prettier-plugin-tailwindcss": "^0.4.1",
-        "tailwindcss": "^3.3.3"
+        "prettier-plugin-tailwindcss": "^0.6.11",
+        "tailwindcss": "^4.1.7"
     },
     "dependencies": {
         "@googlemaps/js-api-loader": "^1.16.2"
+    },
+    "allowScripts": {
+        "@parcel/watcher@2.6.0": true,
+        "core-js-pure@3.51.0": true,
+        "fsevents@2.3.3": true,
+        "esbuild@0.28.2": true
     }
 }

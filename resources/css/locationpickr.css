@@ -1,3 +1,12 @@
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+@source '../views/**/*.blade.php';
+@source '../../src/**/*.php';
+
+@variant dark (&:where(.dark, .dark *));
+
 .locationPickr {
     min-height: 30vh;
     z-index: 1 !important;
