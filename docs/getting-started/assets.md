@@ -3,6 +3,16 @@ title: Assets
 weight: 3
 ---
 
+## Filament Assets
+
+The plugin registers its CSS and Alpine components (`locationpickr-field`, `locationpickr-entry`) through `FilamentAsset::register()` and loads them on demand.
+
+If your application publishes Filament assets, run:
+
+```bash
+php artisan filament:assets
+```
+
 ## Compiling assets
 
 We use [Tailwind CSS](https://tailwindcss.com/) and custom Filament themes.

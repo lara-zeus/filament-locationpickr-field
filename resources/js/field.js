@@ -1,4 +1,4 @@
-import { Loader } from '@googlemaps/js-api-loader'
+import { loadGoogleMaps } from './gmaps'
 
 export default function locationPickrField({ location, config }) {
     return {
@@ -6,7 +6,6 @@ export default function locationPickrField({ location, config }) {
         marker: null,
         markerLocation: null,
         infoWindow: null,
-        loader: null,
         location: null,
         config: {
             draggable: true,
@@ -37,52 +36,50 @@ export default function locationPickrField({ location, config }) {
         },
 
         loadGmaps: function () {
-            this.loader = new Loader({
-                apiKey: this.config.apiKey,
-                version: 'weekly',
-            })
-
-            this.loader
-                .load()
-                .then((google) => {
-                    this.map = new google.maps.Map(this.$refs.map, {
-                        center: this.getCoordinates(),
-                        zoom: this.config.defaultZoom,
-                        ...this.config.controls,
-                    })
-
-                    this.infoWindow = new google.maps.InfoWindow()
-
-                    this.marker = new google.maps.Marker({
-                        draggable: this.config.draggable,
-                        map: this.map,
-                    })
-                    this.marker.setPosition(this.getCoordinates())
-                    this.setCoordinates(this.marker.getPosition())
-
-                    if (this.config.clickable) {
-                        this.map.addListener('click', (event) => {
-                            this.markerMoved(event)
+            loadGoogleMaps(this.config.apiKey, ['maps', 'marker', 'core'])
+                .then(
+                    ([
+                        { Map, InfoWindow },
+                        { Marker },
+                        { ControlPosition, event },
+                    ]) => {
+                        this.map = new Map(this.$refs.map, {
+                            center: this.getCoordinates(),
+                            zoom: this.config.defaultZoom,
+                            ...this.config.controls,
                         })
-                    }
 
-                    if (this.config.draggable) {
-                        google.maps.event.addListener(
-                            this.marker,
-                            'dragend',
-                            (event) => {
-                                this.markerMoved(event)
-                            },
+                        this.infoWindow = new InfoWindow()
+
+                        this.marker = new Marker({
+                            draggable: this.config.draggable,
+                            map: this.map,
+                        })
+                        this.marker.setPosition(this.getCoordinates())
+                        this.setCoordinates(this.marker.getPosition())
+
+                        if (this.config.clickable) {
+                            this.map.addListener('click', (e) => {
+                                this.markerMoved(e)
+                            })
+                        }
+
+                        if (this.config.draggable) {
+                            event.addListener(this.marker, 'dragend', (e) => {
+                                this.markerMoved(e)
+                            })
+                        }
+
+                        const locationButtonDiv = document.createElement('div')
+                        locationButtonDiv.classList.add('location-div')
+                        locationButtonDiv.appendChild(
+                            this.createLocationButton(),
                         )
-                    }
-
-                    const locationButtonDiv = document.createElement('div')
-                    locationButtonDiv.classList.add('location-div')
-                    locationButtonDiv.appendChild(this.createLocationButton())
-                    this.map.controls[
-                        google.maps.ControlPosition.TOP_LEFT
-                    ].push(locationButtonDiv)
-                })
+                        this.map.controls[ControlPosition.TOP_LEFT].push(
+                            locationButtonDiv,
+                        )
+                    },
+                )
                 .catch((error) => {
                     console.error('Error loading Google Maps API:', error)
                 })
