@@ -1,11 +1,10 @@
-import { Loader } from '@googlemaps/js-api-loader'
+import { loadGoogleMaps } from './gmaps'
 
 export default function locationPickrEntry({ location, config }) {
     return {
         map: null,
         marker: null,
         markerLocation: null,
-        loader: null,
         location: null,
         config: {
             defaultLocation: {
@@ -23,21 +22,15 @@ export default function locationPickrEntry({ location, config }) {
         },
 
         loadGmaps: function () {
-            this.loader = new Loader({
-                apiKey: this.config.apiKey,
-                version: 'weekly',
-            })
-
-            this.loader
-                .load()
-                .then((google) => {
-                    this.map = new google.maps.Map(this.$refs.map, {
+            loadGoogleMaps(this.config.apiKey, ['maps', 'marker'])
+                .then(([{ Map }, { Marker }]) => {
+                    this.map = new Map(this.$refs.map, {
                         center: this.getCoordinates(),
                         zoom: this.config.defaultZoom,
                         ...this.config.controls,
                     })
 
-                    this.marker = new google.maps.Marker({
+                    this.marker = new Marker({
                         map: this.map,
                     })
                     this.marker.setPosition(this.getCoordinates())
