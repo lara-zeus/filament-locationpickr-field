@@ -136,12 +136,10 @@ export default function locationPickrField({ location, config }) {
         updateMapFromAlpine: function () {
             const location = this.getCoordinates()
             const markerLocation = this.marker.getPosition()
-            if (
-                !(
-                    location.lat === markerLocation.lat() &&
-                    location.lng === markerLocation.lng()
-                )
-            ) {
+            if (!(
+                location.lat === markerLocation.lat() &&
+                location.lng === markerLocation.lng()
+            )) {
                 this.updateMap(location)
             }
         },
